@@ -52,7 +52,6 @@ a:hover { text-decoration: underline; }
 .site-header { background: var(--white); }
 
 .header-top-bar {
-  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -677,12 +676,16 @@ footer img { width: auto; height: 100px; margin-bottom: 12px; display: block; }
       <form onsubmit="return false;">
         <div class="form-grid">
           <div class="form-field">
-            <label for="fname">First name <span style="font-weight:400;color:var(--grey)">(optional)</span></label>
-            <input type="text" id="fname" placeholder="e.g. Alex">
+            <label for="fname">Full name</label>
+            <input type="text" id="fname" placeholder="e.g. Alex Smith">
           </div>
           <div class="form-field">
-            <label for="contact">Email or phone number</label>
-            <input type="text" id="contact" placeholder="email@example.com or 416-xxx-xxxx">
+            <label for="email">Email address</label>
+            <input type="email" id="email" placeholder="email@example.com">
+          </div>
+          <div class="form-field">
+            <label for="phone">Phone number <span style="font-weight:400;color:var(--grey)">(optional)</span></label>
+            <input type="tel" id="phone" placeholder="416-xxx-xxxx">
           </div>
           <div class="form-field">
             <label for="loc">Which location interests you?</label>
@@ -818,10 +821,3 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a) {
 </script>
 </body>
 </html>
-<style>
-.header-logo {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-</style>
