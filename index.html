@@ -52,12 +52,15 @@ a:hover { text-decoration: underline; }
 .site-header { background: var(--white); }
 
 .header-top-bar {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 24px;
   flex-wrap: wrap;
   gap: 8px;
+  min-height: 200px;
+  position: relative;
 }
 
 .header-rapid-btn {
@@ -356,7 +359,7 @@ a:hover { text-decoration: underline; }
   margin-bottom: 14px;
 }
 
-@media (max-width: 560px) { .form-grid { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .form-grid { grid-template-columns: 1fr; } .header-rapid-btn, .header-donate-btn, .site-nav {display: none;} }
 
 .form-field label {
   display: block;
@@ -451,11 +454,9 @@ a:hover { text-decoration: underline; }
 }
 
 .accordion-chevron {
-  display: flex;
-  align-items: center;
-  color: var(--yellow);
+  font-size: 18px;
+  color: var(--blue);
   transition: transform 0.25s;
-  flex-shrink: 0;
 }
 
 .accordion-body {
@@ -704,11 +705,7 @@ footer img { width: auto; height: 100px; margin-bottom: 12px; display: block; }
     <div class="details-accordion">
       <button class="accordion-trigger" onclick="toggleAccordion()">
         Full Program Information
-        <span class="accordion-chevron" id="chevron">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3 5.5L8 10.5L13 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
+        <span class="accordion-chevron" id="chevron">&#9660;</span>
       </button>
       <div class="accordion-body" id="accordionBody">
         <dl class="info-grid">
@@ -821,3 +818,10 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a) {
 </script>
 </body>
 </html>
+<style>
+.header-logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+</style>
