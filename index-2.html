@@ -153,10 +153,65 @@ a:hover { text-decoration: underline; }
   background: var(--navy);
   color: var(--white);
   padding: 56px 24px;
-  text-align: center;
 }
 
-.hero-inner { max-width: 700px; margin: 0 auto; }
+.hero-inner {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.hero-content { text-align: left; }
+
+.hero-image {
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed rgba(255,255,255,0.2);
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-image-placeholder {
+  text-align: center;
+  color: rgba(255,255,255,0.4);
+  font-size: 14px;
+  padding: 24px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.hero-image-placeholder svg {
+  display: block;
+  margin: 0 auto 12px;
+  opacity: 0.4;
+}
+
+.hero-ctas {
+  justify-content: flex-start;
+}
+
+.hero-pills {
+  justify-content: flex-start;
+}
+
+@media (max-width: 800px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-content { text-align: center; }
+  .hero-ctas { justify-content: center; }
+  .hero-pills { justify-content: center; }
+  .header-rapid-btn, .header-donate-btn, .site-nav { display: none; }
+}
 
 .hero-eyebrow {
   font-family: 'Roboto', sans-serif;
@@ -186,7 +241,6 @@ a:hover { text-decoration: underline; }
 .hero-ctas {
   display: flex;
   gap: 12px;
-  justify-content: center;
   flex-wrap: wrap;
   margin-bottom: 28px;
 }
@@ -222,7 +276,6 @@ a:hover { text-decoration: underline; }
 .hero-pills {
   display: flex;
   gap: 8px;
-  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -231,11 +284,6 @@ a:hover { text-decoration: underline; }
   font-size: 13px;
   padding: 5px 14px;
   border-right: 1px solid rgba(255,255,255,0.12);
-  /* 
-  background: rgba(255,255,255,0.12);
-  border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.25); 
-  */
 }
 
 .pill span {
@@ -522,10 +570,7 @@ a:hover { text-decoration: underline; }
   gap: 32px;
 }
 
-@media (max-width: 700px) { 
-  .footer-inner { grid-template-columns: 1fr; } 
-  .header-rapid-btn, .header-donate-btn, .site-nav { display: none; }
-}
+@media (max-width: 700px) { .footer-inner { grid-template-columns: 1fr; } }
 
 .footer-col h4 {
   font-family: 'Roboto', sans-serif;
@@ -594,18 +639,28 @@ footer img { width: auto; height: 100px; margin-bottom: 12px; display: block; }
 
 <section class="hero">
   <div class="hero-inner">
-    <h1>Rapid Access Therapy</h1>
-    <p class="hero-sub">Rapid Access Therapy, provided at no charge, is barrier-free access to mental health counselling services offered virtually (Virtual Rapid Access Therapy) and in-person (Walk-in Rapid Access Therapy).</p>
-    <div class="hero-ctas">
-      <a href="#hours" class="btn-primary">Find walk-in hours</a>
-      <a href="#virtual" class="btn-outline">Use online form</a>
+    <div class="hero-content">
+      <h1>Rapid Access Therapy</h1>
+      <p class="hero-sub">Rapid Access Therapy, provided at no charge, is barrier-free access to mental health counselling services offered virtually (Virtual Rapid Access Therapy) and in-person (Walk-in Rapid Access Therapy).</p>
+      <div class="hero-ctas">
+        <a href="#hours" class="btn-primary">Find walk-in hours</a>
+        <a href="#virtual" class="btn-outline">Use online form</a>
+      </div>
+      <div class="hero-pills">
+        <span class="pill"><span>Fee</span> <br/>Free Service</span>
+        <span class="pill"><span>Duration</span> <br/>1 hr, as needed, ongoing</span>
+        <span class="pill"><span>Ages</span> <br/>Ages 0&ndash;29</span>
+        <span class="pill"><span>Referral</span> <br/>Not Required</span>
+        <span class="pill"><span>Languages Offered</span> <br/>English &middot; Spanish &middot; Translation</span>
+      </div>
     </div>
-    <div class="hero-pills">
-      <span class="pill"><span>Fee</span> <br/>Free Service</span>
-      <span class="pill"><span>Duration</span> <br/>1 hr, as needed, ongoing</span>
-      <span class="pill"><span>Ages</span> <br/>Ages 0&ndash;29</span>
-      <span class="pill"><span>Referral</span> <br/>Not Required</span>
-      <span class="pill"><span>Languages Offered</span> <br/>English &middot; Spanish &middot; Translation</span>
+    <div class="hero-image">
+      <div class="hero-image-placeholder">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+        </svg>
+        Hero image<br>to be placed here
+      </div>
     </div>
   </div>
 </section>
