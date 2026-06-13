@@ -582,6 +582,52 @@ a:hover { text-decoration: underline; }
 
 .accordion-body.open { display: block; }
 
+/* FAQ ACCORDION */
+.faq-accordion {
+  border: 1px solid #DDE3EC;
+  border-radius: 6px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.faq-trigger {
+  width: 100%;
+  background: #F8F9FB;
+  border: none;
+  padding: 14px 20px;
+  text-align: left;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-trigger:hover { background: #EEF1F6; }
+
+.faq-chevron {
+  font-size: 14px;
+  color: #6b7a99;
+  transition: transform 0.25s;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.faq-body {
+  padding: 12px 20px 16px;
+  display: none;
+  background: #fff;
+  border-top: 1px solid #DDE3EC;
+  font-size: 14px;
+  color: #444;
+  line-height: 1.6;
+}
+
+.faq-body.open { display: block; }
+
 .info-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -1488,6 +1534,63 @@ or email <a href="mailto:info@yorktownfamilyservices.com" role="link">info@yorkt
       </div>
     </div>
 
+    <h2 style="text-align:left;margin-top:40px;margin-bottom:0;">Frequently Asked Questions</h2>
+
+    <div class="faq-accordion">
+      <button class="faq-trigger" onclick="toggleFaq('faq1')">
+        Is it free?
+        <span class="faq-chevron" id="faq1-chevron">&#9660;</span>
+      </button>
+      <div class="faq-body" id="faq1">
+        <p>Yes — this service is completely free. All Yorktown Family Services' programs, services, and supports are offered barrier-free at no charge.</p>
+      </div>
+    </div>
+    <div class="faq-accordion">
+      <button class="faq-trigger" onclick="toggleFaq('faq2')">
+        Do I need a referral?
+        <span class="faq-chevron" id="faq2-chevron">&#9660;</span>
+      </button>
+      <div class="faq-body" id="faq2">
+        <p>No referral is required. You can reach out directly by calling <a href="tel:416-394-2424">416-394-2424</a> Ext: 0, or by emailing <a href="mailto:info@yorktownfamilyservices.com">info@yorktownfamilyservices.com</a>.</p>
+      </div>
+    </div>
+    <div class="faq-accordion">
+      <button class="faq-trigger" onclick="toggleFaq('faq3')">
+        How quickly can I get support?
+        <span class="faq-chevron" id="faq3-chevron">&#9660;</span>
+      </button>
+      <div class="faq-body" id="faq3">
+        <p>Support is available on an as-needed, ongoing basis. Walk-in sessions are offered at the West Toronto Youth Hub and at St. James Town Community Corner (The Corner), so you can access support without waiting for a scheduled appointment. Virtual sessions by phone or web conferencing are also available.</p>
+      </div>
+    </div>
+    <div class="faq-accordion">
+      <button class="faq-trigger" onclick="toggleFaq('faq4')">
+        Is this confidential?
+        <span class="faq-chevron" id="faq4-chevron">&#9660;</span>
+      </button>
+      <div class="faq-body" id="faq4">
+        <p>Yes. Yorktown Family Services is committed to protecting your privacy. What you share with your counsellor is kept confidential, in accordance with applicable privacy legislation. Your counsellor can explain the specific limits of confidentiality with you at the start of your sessions.</p>
+      </div>
+    </div>
+    <div class="faq-accordion">
+      <button class="faq-trigger" onclick="toggleFaq('faq5')">
+        What ages are eligible?
+        <span class="faq-chevron" id="faq5-chevron">&#9660;</span>
+      </button>
+      <div class="faq-body" id="faq5">
+        <p>The program serves young people ages 0&ndash;29 years, as well as their parents and/or caregivers.</p>
+      </div>
+    </div>
+    <div class="faq-accordion">
+      <button class="faq-trigger" onclick="toggleFaq('faq6')">
+        Can parents attend?
+        <span class="faq-chevron" id="faq6-chevron">&#9660;</span>
+      </button>
+      <div class="faq-body" id="faq6">
+        <p>Yes. Parents and caregivers are welcome and eligible to access the program. Sessions are available virtually (by phone or web conferencing) or as walk-ins at either of our two locations.</p>
+      </div>
+    </div>
+
     <div style="width: 100%; height: 1px; background: #DDE3EC; margin-top: 48px;"></div>
 
     <section class="section">
@@ -1573,6 +1676,13 @@ or email <a href="mailto:info@yorktownfamilyservices.com" role="link">info@yorkt
 </div>
 
 <script>
+function toggleFaq(id) {
+  var body = document.getElementById(id);
+  var chevron = document.getElementById(id + '-chevron');
+  var isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  chevron.style.transform = isOpen ? '' : 'rotate(180deg)';
+}
 function toggleAccordion() {
   var body = document.getElementById('accordionBody');
   var chevron = document.getElementById('chevron');
